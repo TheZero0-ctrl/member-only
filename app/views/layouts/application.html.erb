@@ -1,3 +1,4 @@
+<%= javascript_include_tag "application" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +12,13 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

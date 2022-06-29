@@ -1,0 +1,33 @@
+<div class="heading text-center font-bold text-2xl m-5 text-gray-800">Sign Up</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 p-4 shadow-lg max-w-2xl items-center">
+    <div>
+      <%= f.label :username %><br />
+      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none w-full" %>
+    </div>
+    <div>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autocomplete: "email", class: "title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none w-full" %>
+    </div>
+
+    <div>
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none w-full" %>
+    </div>
+
+    <div>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none w-full" %>
+    </div>
+
+    <div class="buttons flex">
+      <%= f.submit "Sign up", class: "btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500" %>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+<% end %>

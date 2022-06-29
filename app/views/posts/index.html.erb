@@ -1,3 +1,18 @@
-<h1 class="text-3xl font-bold underline">
-    Hello world!
-</h1>
+<% @posts.each do |post| %>
+    <div class="p-8 flex justify-center">
+        <div class="px-5 py-4 bg-gray-400 shadow rounded-lg max-w-lg w-4/5">
+            <div class="flex mb-4">
+            <div class="ml-2 mt-0.5">
+                <% if user_signed_in? %>
+                  <span class="block font-medium text-base leading-snug text-gray-800"><%= post.user.username %></span>
+                  <span class="block font-medium text-base leading-snug text-gray-800"><%= post.user.email %></span>
+                <% else %>
+                    <span class="block font-medium text-base leading-snug text-gray-800">Anonymous</span>
+                <% end %>
+            </div>
+            </div>
+            <h3><%= post.title %></h3>
+            <p class="text-gray-800  leading-snug md:leading-normal"><%= post.body %></p>
+        </div>
+    </div>
+<% end %>
